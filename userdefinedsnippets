@@ -1,0 +1,366 @@
+{
+  // Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Example:
+  // "Print to console": {
+  // 	"scope": "javascript,typescript",
+  // 	"prefix": "log",
+  // 	"body": [
+  // 		"console.log('$1');",
+  // 		"$2"
+  // 	],
+  // 	"description": "Log output to console"
+  // }
+
+  "Comment Section Divider": {
+    "scope": "javascript, typescript, typescriptreact",
+    "prefix": "com:section",
+    "body": [
+      "/*",
+      "|--------------------------------------------------------------------------",
+      "| $1",
+      "|--------------------------------------------------------------------------",
+      "*/",
+      ""
+    ],
+    "description": "Large comment section for organizing files"
+  },
+
+  "Comment Variable Name,Val": {
+    "scope": "javascript, typescript, typescriptreact",
+    "prefix": "com:inlineTemplate",
+    "body": ["console.log(`${1:someVariable}`, ${1:someVariable});"],
+    "description": "inline debugging template"
+  },
+
+  "React Component Pure": {
+    "scope": "javascript, typescript, typescriptreact",
+    "prefix": "react:pure",
+    "description": "React Component File Skeleton",
+    "body": [
+      "import React, {useState, useEffect, useMemo, useCallback} from 'react';",
+      "import styled from 'styled-components';",
+      "// import {COLORS} from '@utils/constants';",
+      "// import {} from 'antd';",
+      "// import {} from '@models/serverModels';",
+      "",
+      "/*",
+      "|--------------------------------------------------------------------------",
+      "| Styled Components",
+      "|--------------------------------------------------------------------------",
+      "*/",
+      "",
+      "const Container = styled.div``",
+      "",
+      "",
+      "/*",
+      "|--------------------------------------------------------------------------",
+      "| Util Methods",
+      "|--------------------------------------------------------------------------",
+      "*/",
+      "",
+      "",
+      "/*",
+      "|--------------------------------------------------------------------------",
+      "| Constants",
+      "|--------------------------------------------------------------------------",
+      "*/",
+      "",
+      "",
+      "/*",
+      "|--------------------------------------------------------------------------",
+      "| Util Components",
+      "|--------------------------------------------------------------------------",
+      "*/",
+      "",
+      "/*",
+      "|--------------------------------------------------------------------------",
+      "| Component",
+      "|--------------------------------------------------------------------------",
+      "*/",
+      "",
+      "export interface I${1:ComponentName}Props {}",
+      "",
+      "function ${1:ComponentName}({}: I${1:ComponentName}Props){",
+      "  return (",
+      "    <Container>MORE STUFF HERE</Container>",
+      "  )",
+      "};",
+      "",
+      "export default ${1:ComponentName};"
+    ]
+  },
+
+  "React Component Wrapped": {
+    "scope": "javascript, typescript, typescriptreact",
+    "prefix": "react:container",
+    "description": "React Component Wrapper Skeleton",
+    "body": [
+      "import React, {useState, useEffect} from 'react';",
+      "import styled from 'styled-components';",
+      "import ${1:ComponentName} from './${1:ComponentName}';",
+      "// import {COLORS} from '@utils/constants';",
+      "// import {} from 'antd';",
+      "// import {} from '@models/serverModels';",
+      "",
+      "/*",
+      "|--------------------------------------------------------------------------",
+      "| Util Methods",
+      "|--------------------------------------------------------------------------",
+      "*/",
+      "",
+      "",
+      "/*",
+      "|--------------------------------------------------------------------------",
+      "| Constants",
+      "|--------------------------------------------------------------------------",
+      "*/",
+      "",
+      "",
+      "/*",
+      "|--------------------------------------------------------------------------",
+      "| Util Components",
+      "|--------------------------------------------------------------------------",
+      "*/",
+      "",
+      "/*",
+      "|--------------------------------------------------------------------------",
+      "| Container Component",
+      "|--------------------------------------------------------------------------",
+      "*/",
+      "",
+      "export interface I${1:ComponentName}ContainerProps {}",
+      "",
+      "function ${1:ComponentName}Container({}: I${1:ComponentName}ContainerProps){",
+      "  return (",
+      "    <${1:ComponentName}",
+      "      // props here",
+      "    />",
+      "  )",
+      "};",
+      "",
+      "export default ${1:ComponentName}Container;"
+    ]
+  },
+
+  "React Unit Test": {
+    "scope": "javascript, typescript, typescriptreact",
+    "prefix": "react:unittest:file",
+    "body": [
+      "import React from 'react';",
+      "import {render} from '@testing-library/react';",
+      "import ${1:ComponentName} from './${1:ComponentName}'",
+      "",
+      "test('testNameHere', () => {",
+      "  const onClickMock = jest.fn();",
+      "  const {queryByTestId} = render(",
+      "    <${1:ComponentName}",
+      "      onClick={onClickMock}",
+      "    />",
+      "  );",
+      "",
+      "// const Component = getByTestId('some-test-id');",
+      "// Component.Click();",
+      "// expect(Component).toBeTruthy()",
+      "// expect(Component).toBeFalsy()",
+      "// expect(Component.innerHTML).toEqual()",
+      "// expect(onClickMock.mock.calls.length).toBe(1);"
+    ],
+    "description": "React Unit Test FIle Skeleton"
+  },
+
+  "React Unit Test": {
+    "scope": "javascript, typescript, typescriptreact",
+    "prefix": "react:unittest:test",
+    "body": [
+      "test('${1:TestAction}', () => {",
+      "  const onClickMock = jest.fn();",
+      "  const {queryByTestId} = render(",
+      "    <${2:ComponentName}",
+      "      onClick={onClickMock}",
+      "    />",
+      "  );",
+      "",
+      "// const Component = getByTestId('some-test-id');",
+      "// Component.Click();",
+      "// expect(Component).toBeTruthy()",
+      "// expect(Component).toBeFalsy()",
+      "// expect(Component.innerHTML).toEqual()",
+      "// expect(onClickMock.mock.calls.length).toBe(1);"
+    ],
+    "description": "React Unit Test Skeleton"
+  },
+
+  "React Cypress Test": {
+    "scope": "javascript, typescript, typescriptreact",
+    "prefix": "react:cypr:file",
+    "body": [
+      "/// <reference types='cypress' />",
+      "",
+      "// import PageName from './../../../pageObjModel/PageName",
+      "",
+      "describe('', () => {",
+      "  beforeEach(() => {",
+      "    cy.login(Cypress.env('admin_username'), Cypress.env('admin_password'));",
+      "  }",
+      "",
+      "  it('', () => {",
+      "    // TEST CODE HERE",
+      "  });",
+      "});"
+    ],
+    "description": "React Component Cypress Test Skeleton"
+  },
+
+  "New React Component": {
+    "scope": "javascript, typescript, typescriptreact",
+    "prefix": "react:component",
+    "body": [
+      "export interface I$1Props {}",
+      "",
+      "export function $1({}: I$1Props){",
+      "  return(",
+      "    <div>MORE STUFF HERE</div>",
+      "  );",
+      "}",
+      ""
+    ],
+    "description": "React Component Skeleton"
+  },
+
+  "New Function": {
+    "scope": "javascript, typescript, typescriptreact",
+    "prefix": "func:basic",
+    "body": [
+      "export interface I${1:functionName}Args {}",
+      "",
+      "export function ${1:functionName}({}: I$1Args): ${2:OutputType}{",
+      "// logic here",
+      "return",
+      "}",
+      ""
+    ],
+    "description": "Function Skeleton"
+  },
+
+  "Storybook Component": {
+    "scope": "javascript, typescript, typescriptreact",
+    "prefix": "react:story",
+    "body": [
+      "import React from 'react';",
+      "import {ComponentStory, ComponentMeta} from '@storybook/react';",
+      "import {default as Component} from '$3';",
+      "",
+      "export default {",
+      "  title: '${2:STORYBOOK_LOCATION}',",
+      "  component: Component,",
+      "  argTypes: {",
+      "  }",
+      "} as ComponentMeta<typeof Component>;",
+      "",
+      "const Template: ComponentStory<typeof Component> = (args) => <Component {...args} />;",
+      "",
+      "export const ${1:COMPONENT_NAME} = Template.bind({})",
+      "",
+      "${1:COMPONENT_NAME}.args = {};"
+    ],
+    "description": "Storybook Skeleton"
+  },
+
+  "Api Endpoint GET": {
+    "scope": "javascript, typescript, typescriptreact",
+    "prefix": "rq:apiEndpoints:get",
+    "body": [
+      "export const get${1:ActionName}Rq = (${2:Args}): ReactQueryRequest => {",
+      "  const path = [].join('/')",
+      "  return {",
+      "    path,",
+      "    queryKey: [path],",
+      "  };",
+      "};"
+    ],
+    "description": "apiEndpoint GET function skeleton"
+  },
+
+  "Api Endpoint GET w/ querystring": {
+    "scope": "javascript, typescript, typescriptreact",
+    "prefix": "rq:apiEndpoints:getWithQuerystring",
+    "body": [
+      "export const get${1:ActionName}Rq = (${2:Args}): ReactQueryRequest => {",
+      "  const baseUrl = [].join('/')",
+      "  let queryKey = [baseUrl];",
+      "  let queryParams = [querystring.stringify({})];",
+      "  return {",
+      "    path: addQueryParams(baseUrl, queryParams),",
+      "    queryKey,",
+      "  };",
+      "};"
+    ],
+    "description": "apiEndpoint GET function skeleton"
+  },
+
+  "Api Endpoint POST/PUT": {
+    "scope": "javascript, typescript, typescriptreact",
+    "prefix": "rq:apiEndpoints:post",
+    "body": [
+      "export const get${1:ActionName}Rm = (payload: ${2:PayloadType}): ReactMutateRequest => {",
+      "  const path = [].join('/')",
+      "  return {",
+      "    path,",
+      "    payload,",
+      "  };",
+      "};"
+    ],
+    "description": "apiEndpoint GET function skeleton"
+  },
+
+  "React Query Imports": {
+    "scope": "javascript, typescript, typescriptreact",
+    "prefix": "rq:imports",
+    "body": [
+      "import {useQuery, useMutation} from 'react-query';",
+      "import {simpleQueryFn, simpleMutationFn} from '@store/queryClient';",
+      "import {} from '@store/apiEndpoints';"
+    ],
+    "description": "imports for using React Query"
+  },
+
+  "React Query Get": {
+    "scope": "javascript, typescript, typescriptreact",
+    "prefix": "rq:query",
+    "body": [
+      "const ${1:ActionName}Rq = get${1:ActionName}Rq(${2:Args});",
+      "const ${1:ActionName}Query = useQuery<${3:ReturnType}>(",
+      "  ${1:ActionName}Rq.queryKey,",
+      "  () => simpleQueryFn(${1:ActionName}Rq.path),",
+      "  {",
+      "    enabled: true,",
+      "    onSuccess: () => {},",
+      "    onError: () => {}",
+      "  }",
+      ");"
+    ],
+    "description": "React Query Simple Get Template"
+  },
+
+  "React Query Mutation": {
+    "scope": "javascript, typescript, typescriptreact",
+    "prefix": "rq:mutation",
+    "body": [
+      "const ${1:ActionName}Mutation = useMutation(",
+      "  (args: ${2:PayloadType}) => {",
+      "    const ${1:ActionName} = get${1:ActionName}Rm(args);",
+      "    return simpleMutationFn<${3:ReturnType}>(${1:ActionName}.path, ${1:ActionName}.payload);",
+      "  },{",
+      "    onSuccess: () => {},",
+      "    onError: () => {}",
+      "  }",
+      ");"
+    ],
+    "description": "React Query Simple Get Template"
+  }
+}
